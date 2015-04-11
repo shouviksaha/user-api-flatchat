@@ -16,7 +16,7 @@ def length_validator(data):
 class UserListSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(validators = [email_validator])
     username = serializers.CharField(validators = [length_validator])
-    password = serializers.CharField(validators = [length_validator],read_only=True)
+    password = serializers.CharField(validators = [length_validator],write_only=True)
     class Meta:
         model = User
         fields = ('id','username','password', 'first_name', 'last_name', 'email')
